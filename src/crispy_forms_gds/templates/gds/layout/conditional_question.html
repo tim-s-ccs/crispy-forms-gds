@@ -1,12 +1,12 @@
 {% extends 'gds/layout/radio_item.html' %}
 
 {% block additional_input_attributes %}
-  aria-controls="conditional_{{ field.html_name }}_{{ position }}"
+  aria-controls="conditional_{{ field.html_name }}{% if position > 1 %}_{{ position }}{% endif %}"
 {% endblock %}
 
 {% block additional_content %}
   {% if conditional_content %}
-    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional_{{ field.html_name }}_{{ position }}">
+    <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional_{{ field.html_name }}{% if position > 1 %}_{{ position }}{% endif %}">
       {{ conditional_content|safe }}
     </div>
   {% endif %}
