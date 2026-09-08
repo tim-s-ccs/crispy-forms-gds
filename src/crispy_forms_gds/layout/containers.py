@@ -1,9 +1,8 @@
-from django.template.loader import render_to_string
-from django.utils.text import slugify
-
 import crispy_forms
 from crispy_forms import layout as crispy_forms_layout
 from crispy_forms.utils import TEMPLATE_PACK, flatatt, render_field
+from django.template.loader import render_to_string
+from django.utils.text import slugify
 
 from crispy_forms_gds.layout import Size
 
@@ -457,7 +456,7 @@ def conditional_question_render_v1(
     mapped_choices = {choice[1]: choice for choice in bound_field.field.choices}
     value = self.value
     choice = mapped_choices[value]
-    position = list(mapped_choices.keys()).index(self.value)
+    position = list(mapped_choices.keys()).index(self.value) + 1
 
     conditional_content = ""
     for field in self.fields:
@@ -485,7 +484,7 @@ def conditional_question_render_v2(
     mapped_choices = {choice[1]: choice for choice in bound_field.field.choices}
     value = self.value
     choice = mapped_choices[value]
-    position = list(mapped_choices.keys()).index(self.value)
+    position = list(mapped_choices.keys()).index(self.value) + 1
 
     conditional_content = ""
     for field in self.fields:

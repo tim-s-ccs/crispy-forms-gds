@@ -14,7 +14,7 @@
         {% for field in form.visible_fields %}
           {% for field_id, errors in field|field_errors %}
             {% for error in errors %}
-              <li><a href="#{{ field_id }}">{{ error }}</a></li>
+              <li><a href="#{{ field_id }}{% if field.field.widget.input_type == "radio" or field.field.widget.input_type == "checkbox" %}_1{% endif %}">{{ error }}</a></li>
             {% endfor %}
           {% endfor %}
         {% endfor %}
