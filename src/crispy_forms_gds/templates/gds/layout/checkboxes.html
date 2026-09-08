@@ -19,21 +19,21 @@
           type="checkbox"
           name="{{ field.html_name }}"
           class="govuk-checkboxes__input"
-          id="id_{{ field.html_name }}_{{ forloop.counter }}"
+          id="id_{{ field.html_name }}_{{ forloop.counter0 }}"
           value="{{ choice.0|unlocalize }}"
           {% if choice.0 in field.value or choice.0|stringformat:"s" in field.value %}
             checked="checked"
           {% endif %}
           {% if choice.hint %}
-             aria-describedby="id_{{ field.html_name }}_{{ forloop.counter }}_hint"
+             aria-describedby="id_{{ field.html_name }}_{{ forloop.counter0 }}_hint"
           {% endif %}
         >
 
-        <label class="govuk-label govuk-checkboxes__label" for="id_{{ field.html_name }}_{{ forloop.counter }}">
+        <label class="govuk-label govuk-checkboxes__label" for="id_{{ field.html_name }}_{{ forloop.counter0 }}">
           {{ choice.1|unlocalize }}
         </label>
         {% if choice.hint %}
-          <span id="id_{{ field.html_name }}_{{ forloop.counter }}_hint" class="govuk-hint govuk-checkboxes__hint">
+          <span id="id_{{ field.html_name }}_{{ forloop.counter0 }}_hint" class="govuk-hint govuk-checkboxes__hint">
             {{ choice.hint }}
           </span>
         {% endif %}
